@@ -227,6 +227,8 @@ class Line(object):
         # --------------------------------------------------------------
         self.start = start.clone()
         self.end = end.clone()
+        self.beginstart = self.start
+        self.beginend = self.end
         self.count = 0
 
     def __repr__(self):
@@ -718,6 +720,10 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+
+        self.start = self.beginstart
+        self.end = self.beginend
+        return self
 
 
 ########################################################################
