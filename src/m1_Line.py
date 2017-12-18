@@ -567,7 +567,7 @@ class Line(object):
           :rtype: Line:
         """
         # --------------------------------------------------------------
-        # TODO: 10.
+        # Done: 10.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -575,6 +575,12 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+
+        newstart = Point(self.start.x - other_line.start.x, self.start.y -
+                         other_line.start.y)
+        newend = Point(self.end.x - other_line.end.x, self.end.y -
+                       other_line.end.y)
+        return Line(newstart, newend)
 
     def midpoint(self):
         """
@@ -594,7 +600,7 @@ class Line(object):
           :rtype: Point
         """
         # --------------------------------------------------------------
-        # TODO: 11.
+        # Done: 11.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -602,6 +608,10 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+
+        pointx = ((self.end.x - self.start.x)/2) + self.start.x
+        pointy = ((self.end.y - self.start.y)/2) + self.start.y
+        return Point(pointx, pointy)
 
     def is_parallel(self, line2):
         """
@@ -630,7 +640,7 @@ class Line(object):
           :rtype: bool
         """
         # --------------------------------------------------------------
-        # TODO: 12.
+        # Done: 12.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -664,6 +674,11 @@ class Line(object):
         # and (usually) adequate to distinguish numbers that really
         # are different from each other.
         ################################################################
+
+        if round(self.slope(), 12) == round(line2.slope(), 12):
+            return True
+        else:
+            return False
 
     def reset(self):
         """
