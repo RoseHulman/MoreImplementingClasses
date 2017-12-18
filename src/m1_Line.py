@@ -227,8 +227,8 @@ class Line(object):
         # --------------------------------------------------------------
         self.start = start.clone()
         self.end = end.clone()
-        self.beginstart = self.start
-        self.beginend = self.end
+        self.beginstart = start.clone()
+        self.beginend = self.end.clone()
         self.count = 0
 
     def __repr__(self):
