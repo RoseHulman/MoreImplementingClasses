@@ -271,22 +271,22 @@ class CapitalT(object):
           :rtype: CapitalT
         """
         # --------------------------------------------------------------
-        # TODO: 7.
+        # Done: 7.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
         #     clone.pdf.
         # --------------------------------------------------------------
 
-        self.newtv = rg.Rectangle(self.v_rect.corner_1, self.v_rect.corner_2)
-        self.newth = rg.Rectangle(self.h_rect.corner_1, self.h_rect.corner_2)
-        self.newth.fill_color = self.h_rect.fill_color
-        self.newtv.fill_color = self.newtv.fill_color
-        self.newth.outline_color = self.newth.outline_color
-        self.newtv.outline_color = self.newtv.outline_color
-        return self.newtv, self.newth
-
-
+        t1 = CapitalT(rg.Point((self.h_rect.corner_1.x +
+                               self.h_rect.corner_2.x)/2,
+                               (self.h_rect.corner_1.y +
+                               self.h_rect.corner_2.y)/2),
+                      self.h_rect.corner_2.x - self.h_rect.corner_1.x,
+                      self.v_rect.corner_2.y - self.v_rect.corner_1.y,
+                      self.v_rect.corner_2.x - self.v_rect.corner_1.x)
+        t1.set_colors(self.h_rect.fill_color, self.h_rect.outline_color)
+        return t1
 
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
